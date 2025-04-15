@@ -11,5 +11,10 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["setupTests.ts"],
     globals: true,
+    coverage: {
+      include: ["**/*.{ts,tsx}"],
+      exclude: ["main.tsx", "**/types.*", "**/*.d.ts"],
+      reportsDirectory: "../coverage",
+    },
   },
 });
