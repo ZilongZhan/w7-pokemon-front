@@ -8,7 +8,9 @@ const PokemonCardsList: React.FC<PokemonCardsListProps> = ({ pokemons }) => {
   return (
     <ul className="pokemons">
       {pokemons.map((pokemon) => (
-        <h2 key={pokemon.id}>{pokemon.name}</h2>
+        <article key={pokemon.id}>
+          <h2>{pokemon.name}</h2>
+        </article>
       ))}
     </ul>
   );
