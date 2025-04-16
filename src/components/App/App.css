@@ -1,5 +1,28 @@
 .container {
   min-height: 100vh;
-  max-width: 1500px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+
+  @media (width >= 500px) {
+    flex-direction: row;
+  }
+}
+
+.main-content__aside {
+  background-color: rgb(222, 240, 255);
+
+  @media (width >= 500px) {
+    padding: 40px 20px;
+    width: 25vw;
+  }
+
+  @media (width >= 800px) {
+    padding: 40px 40px;
+  }
 }

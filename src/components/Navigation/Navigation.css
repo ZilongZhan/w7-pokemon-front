@@ -1,0 +1,26 @@
+.navigation__list {
+  display: flex;
+
+  @media (width >= 500px) {
+    flex-direction: column;
+  }
+}
+
+.navigation__link {
+  padding: 5px 10px;
+  display: inline-block;
+
+  @media (width >= 800px) {
+    padding: 10px 15px;
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.active {
+  background-color: rgb(79, 79, 196);
+  color: rgb(255, 255, 255);
+}
