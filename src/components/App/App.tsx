@@ -1,3 +1,4 @@
+import { Outlet } from "react-router";
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
 
@@ -7,11 +8,14 @@ const App: React.FC = () => {
   return (
     <div className="container">
       <Header />
-      <div className="main-content">
-        <aside className="main-content__aside">
+      <main className="main-container">
+        <aside className="main-container__aside">
           <Navigation />
         </aside>
-      </div>
+        <div className="main-content">
+          <Outlet />
+        </div>
+      </main>
     </div>
   );
 };

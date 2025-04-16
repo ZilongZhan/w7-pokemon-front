@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import "./Navigation.css";
 
 const Navigation: React.FC = () => {
@@ -5,9 +6,9 @@ const Navigation: React.FC = () => {
     <nav className="navigation">
       <ul className="navigation__list">
         <li>
-          <a className="navigation__link active" href="/home">
+          <NavLink className="navigation__link" to="/home">
             Home
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
