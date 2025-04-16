@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 
-.main-content {
+.main-container {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
@@ -14,7 +14,7 @@
   }
 }
 
-.main-content__aside {
+.main-container__aside {
   background-color: rgb(222, 240, 255);
 
   @media (width >= 500px) {
@@ -25,4 +25,8 @@
   @media (width >= 800px) {
     padding: 40px 40px;
   }
+}
+
+.main-content {
+  padding: 5px 25px;
 }
