@@ -13,3 +13,15 @@ body {
   font-family: "Press Start 2P", system-ui;
   color: rgb(79, 79, 196);
 }
+
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
