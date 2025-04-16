@@ -1,9 +1,33 @@
 .main-header {
   text-align: center;
-  padding: 20px;
-  border-bottom: 5px solid;
+  padding: 20px 50px;
+  border-bottom: 3px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .app-title {
   margin: 0;
+}
+
+.app-title--long {
+  display: none;
+
+  @media (width >= 500px) {
+    display: inline;
+  }
+}
+
+.app-title--short {
+  font-size: 1.5rem;
+
+  @media (width >= 500px) {
+    display: none;
+  }
 }

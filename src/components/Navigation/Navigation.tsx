@@ -2,7 +2,7 @@ import "./Navigation.css";
 
 const Navigation: React.FC = () => {
   return (
-    <nav>
+    <nav className="navigation">
       <ul className="navigation__list">
         <li>
           <a className="navigation__link active" href="/home">
