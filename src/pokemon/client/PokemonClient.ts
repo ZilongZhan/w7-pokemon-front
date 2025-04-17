@@ -8,17 +8,15 @@ class PokemonClient implements PokemonClientStructure {
   private pokeAPI = "https://pokeapi.co/api/v2/pokemon";
 
   private async getPokemonDtoWithDetails(
-    pokemonDto: PokemonDto,
-  ): Promise<{ pokemonDto: PokemonDto; pokemonDetails: PokemonDetails }> {
-    const response = await fetch(`${this.pokeAPI}/${pokemonDto.name}`);
+    name: string,
+  ): Promise<PokemonDetails> {
+    const response = await fetch(`${this.pokeAPI}/${name}`);
 
     if (!response.ok) {
       throw new Error("Error fetching pokemon details");
     }
 
-    const pokemonDetails = (await response.json()) as PokemonDetails;
-
-    return { pokemonDto, pokemonDetails };
+    return (await response.json()) as PokemonDetails;
   }
 
   public async getAllPokemons(): Promise<Pokemon[]> {
@@ -33,9 +31,16 @@ class PokemonClient implements PokemonClientStructure {
     };
 
     const pokemonsDtoWithDetails = await Promise.all(
-      pokemonsDto.map(
-        async (pokemonDto) => await this.getPokemonDtoWithDetails(pokemonDto),
-      ),
+      pokemonsDto.map(async (pokemonDto) => {
+        const pokemonDetails = await this.getPokemonDtoWithDetails(
+          pokemonDto.name,
+        );
+
+        return {
+          pokemonDto,
+          pokemonDetails,
+        };
+      }),
     );
 
     return mapPokemonsDtoToPokemon(pokemonsDtoWithDetails);
