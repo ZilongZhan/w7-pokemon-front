@@ -7,7 +7,8 @@ const plusle: Pokemon = {
   types: ["electric"],
   abilities: ["Plus", "Lightning Rod"],
   imageUrl: "http://plusle.com/plusle.webp",
-  isCaptured: false,
+  imageAlt: "Pixelart of Plusle",
+  isCaptured: true,
 };
 
 const minun: Pokemon = {
@@ -17,6 +18,7 @@ const minun: Pokemon = {
   abilities: ["Minus", "Volt absorb"],
   name: "Minun",
   imageUrl: "http://minun.com/minun.webp",
+  imageAlt: "Pixelart of Minun",
   isCaptured: false,
 };
 
