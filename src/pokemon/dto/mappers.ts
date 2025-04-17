@@ -7,6 +7,7 @@ export const mapPokemonDtoToPokemon = (
 ): Pokemon => {
   return {
     ...pokemonDto,
+    imageAlt: `Pixelart of ${pokemonDto.name}`,
     abilities,
     types,
   };

@@ -25,6 +25,7 @@ export interface Pokemon {
   types: Type[];
   abilities: string[];
   imageUrl: string;
+  imageAlt: string;
   isCaptured: boolean;
 }
 
