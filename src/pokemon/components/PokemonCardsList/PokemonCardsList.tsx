@@ -1,4 +1,7 @@
-import { Pokemon } from "../types";
+import { Pokemon } from "../../types";
+import PokemonCard from "../PokemonCard/PokemonCard";
+
+import "./PokemonCardsList.css";
 
 interface PokemonCardsListProps {
   pokemons: Pokemon[];
@@ -8,9 +11,9 @@ const PokemonCardsList: React.FC<PokemonCardsListProps> = ({ pokemons }) => {
   return (
     <ul className="pokemons">
       {pokemons.map((pokemon) => (
-        <article key={pokemon.id}>
-          <h2>{pokemon.name}</h2>
-        </article>
+        <li key={pokemon.id}>
+          <PokemonCard pokemon={pokemon} />
+        </li>
       ))}
     </ul>
   );
