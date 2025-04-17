@@ -1,5 +1,8 @@
-import { mapPokemonsDtoToPokemon } from "../dto/mappers";
-import { PokemonDto } from "../dto/types";
+import {
+  mapPokemonDetailsDtoToPokemonDetails,
+  mapPokemonsDtoToPokemon,
+} from "../dto/mappers";
+import { PokemonDetailsDto, PokemonDto } from "../dto/types";
 import { Pokemon, PokemonDetails } from "../types";
 import { PokemonClientStructure } from "./types";
 
@@ -16,7 +19,9 @@ class PokemonClient implements PokemonClientStructure {
       throw new Error("Error fetching pokemon details");
     }
 
-    return (await response.json()) as PokemonDetails;
+    const pokemonDetailsDto = (await response.json()) as PokemonDetailsDto;
+
+    return mapPokemonDetailsDtoToPokemonDetails(pokemonDetailsDto);
   }
 
   public async getAllPokemons(): Promise<Pokemon[]> {
