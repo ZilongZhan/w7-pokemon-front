@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { minun, plusle } from "../fixtures";
 import PokemonCardsList from "./PokemonCardsList";
+import { minun, plusle } from "../../fixtures";
 
 describe("Given the PokemonCardsList component", () => {
   describe("When it receives Plusle and Minun", () => {
