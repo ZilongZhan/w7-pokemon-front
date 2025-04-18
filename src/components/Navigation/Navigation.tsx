@@ -10,6 +10,11 @@ const Navigation: React.FC = () => {
             Home
           </NavLink>
         </li>
+        <li>
+          <NavLink className="navigation__link" to="/add-pokemon">
+            Add Pokémon
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

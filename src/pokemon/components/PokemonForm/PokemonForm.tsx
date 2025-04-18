@@ -16,9 +16,7 @@ const PokemonForm: React.FC = () => {
       <h3 className="pokemon-form__title">Pokémon info</h3>
       <fieldset className="pokemon-form__fieldset">
         <div className="pokemon-form__group">
-          <label className="pokemon-form__label" htmlFor="name">
-            Name:
-          </label>
+          <label htmlFor="name">Name:</label>
           <input
             className="pokemon-form__input"
             id="name"
@@ -29,9 +27,7 @@ const PokemonForm: React.FC = () => {
           />
         </div>
         <div className="pokemon-form__group">
-          <label className="pokemon-form__label" htmlFor="pokeIndex">
-            Pokédex Number:
-          </label>
+          <label htmlFor="pokeIndex">Pokédex Number:</label>
           <input
             className="pokemon-form__input"
             id="pokeIndex"
@@ -42,9 +38,7 @@ const PokemonForm: React.FC = () => {
           />
         </div>
         <div className="pokemon-form__group">
-          <label className="pokemon-form__label" htmlFor="imageUrl">
-            Link to image:
-          </label>
+          <label htmlFor="imageUrl">Link to image:</label>
           <input
             className="pokemon-form__input"
             id="imageUrl"
@@ -62,9 +56,7 @@ const PokemonForm: React.FC = () => {
             checked={isCaptured}
             onChange={handleOnChange}
           />
-          <label className="pokemon-form__label" htmlFor="isCaptured">
-            Captured
-          </label>
+          <label htmlFor="isCaptured">Captured</label>
         </div>
         <button className="button" disabled={!isValidData}>
           Add Pokémon
