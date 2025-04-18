@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { PokemonData } from "../types";
 import { UsePokemonForm } from "./types";
+import usePokemons from "./usePokemons";
+import { useNavigate } from "react-router";
 
 const usePokemonForm = (): UsePokemonForm => {
+  const { capturePokemon } = usePokemons();
+  const navigate = useNavigate();
+
   const initialPokemonData = {
     name: "",
     pokeIndex: 0,
@@ -29,6 +34,9 @@ const usePokemonForm = (): UsePokemonForm => {
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
+
+    capturePokemon(pokemonData);
+    navigate("/home");
   };
 
   const isValidData =
