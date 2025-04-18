@@ -30,3 +30,8 @@ export interface Pokemon {
 }
 
 export type PokemonDetails = Pick<Pokemon, "abilities" | "types">;
+
+export type PokemonData = Omit<
+  Pokemon,
+  "id" | "abilities" | "types" | "imageAlt"
+>;
