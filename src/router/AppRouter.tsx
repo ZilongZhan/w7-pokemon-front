@@ -9,7 +9,7 @@ const AppRouter: React.FC = () => {
       <Route path="/" element={<App />}>
         <Route index element={<Navigate to="/home" />} />
         <Route path="/home" element={<PokemonHomePage />} />
-        <Route path="/add-pokemon" element={<PokemonFormPage />} />
+        <Route path="/register-pokemon" element={<PokemonFormPage />} />
       </Route>
     </Routes>
   );

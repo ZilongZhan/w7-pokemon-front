@@ -4,10 +4,12 @@ import AllContextsProvider from "../../../test-utils/AllContextsProvider/AllCont
 
 describe("Given the PokemonFormPage component", () => {
   describe("When it renders", () => {
-    test("Then it should show 'Add Pokémon' inside a heading", () => {
+    test("Then it should show 'Register Pokémon' inside a heading", () => {
       render(<PokemonFormPage />, { wrapper: AllContextsProvider });
 
-      const pageTitle = screen.getByRole("heading", { name: /add pokémon/i });
+      const pageTitle = screen.getByRole("heading", {
+        name: /register pokémon/i,
+      });
 
       expect(pageTitle).toBeVisible();
     });

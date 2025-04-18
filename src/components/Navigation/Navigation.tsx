@@ -11,8 +11,8 @@ const Navigation: React.FC = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink className="navigation__link" to="/add-pokemon">
-            Add Pokémon
+          <NavLink className="navigation__link" to="/register-pokemon">
+            Register Pokémon
           </NavLink>
         </li>
       </ul>

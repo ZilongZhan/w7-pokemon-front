@@ -59,7 +59,7 @@ const PokemonForm: React.FC = () => {
           <label htmlFor="isCaptured">Captured</label>
         </div>
         <button className="button" disabled={!isValidData}>
-          Add Pokémon
+          Register
         </button>
       </fieldset>
     </form>

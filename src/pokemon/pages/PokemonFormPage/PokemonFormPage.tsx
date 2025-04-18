@@ -3,7 +3,7 @@ import PokemonForm from "../../components/PokemonForm/PokemonForm";
 const PokemonFormPage: React.FC = () => {
   return (
     <>
-      <h2>Add Pokémon</h2>
+      <h2>Register Pokémon</h2>
       <PokemonForm />
     </>
   );
