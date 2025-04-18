@@ -30,3 +30,11 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+button {
+  background: none;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+}
