@@ -1,5 +1,6 @@
-import { Pokemon } from "../types";
+import { Pokemon, PokemonData } from "../types";
 
 export interface PokemonClientStructure {
   getAllPokemons: () => Promise<Pokemon[]>;
+  addPokemon: (pokemonData: PokemonData) => Promise<Pokemon>;
 }
