@@ -1,0 +1,58 @@
+.pokemon-form {
+  background-color: rgb(222, 240, 255);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pokemon-form__title {
+  margin: 0;
+}
+
+.pokemon-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  border: 0;
+}
+
+.pokemon-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pokemon-form__group--horizontal {
+  flex-direction: row;
+  align-items: center;
+}
+
+.pokemon-form__input {
+  border: none;
+  border-radius: 0;
+  font-family: inherit;
+  padding: 5px;
+}
+
+.pokemon-form__input--checkbox {
+  height: 1rem;
+  aspect-ratio: 1;
+}
+
+.button {
+  background-color: rgb(79, 79, 196);
+  color: white;
+  padding: 5px 10px;
+  align-self: flex-end;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
