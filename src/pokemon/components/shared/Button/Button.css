@@ -1,6 +1,4 @@
 .button {
-  align-self: flex-end;
-
   &:hover {
     opacity: 0.5;
   }
@@ -12,13 +10,14 @@
 }
 
 .button--square {
+  align-self: flex-end;
   background-color: rgb(79, 79, 196);
   color: white;
   padding: 5px 10px;
 }
 
 .button--remove {
-  color: red;
+  color: rgb(192, 0, 0);
   position: absolute;
   top: 15px;
   right: 15px;
