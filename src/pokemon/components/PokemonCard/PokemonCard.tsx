@@ -1,4 +1,6 @@
+import usePokemons from "../../hooks/usePokemons";
 import { Pokemon } from "../../types";
+import Button from "../shared/Button/Button";
 
 import "./PokemonCard.css";
 
@@ -7,8 +9,14 @@ interface PokemonCardProps {
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({
-  pokemon: { pokeIndex, name, imageUrl, imageAlt, isCaptured, types },
+  pokemon: { id, pokeIndex, name, imageUrl, imageAlt, isCaptured, types },
 }) => {
+  const { removePokemon } = usePokemons();
+
+  const handleOnClick = () => {
+    removePokemon(id);
+  };
+
   return (
     <article className="pokemon">
       {isCaptured && (
@@ -37,6 +45,9 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
           <span className="pokemon__types">Types: {types.join(", ")}</span>
         </div>
       </div>
+      <Button action={handleOnClick} modifier="remove">
+        X
+      </Button>
     </article>
   );
 };

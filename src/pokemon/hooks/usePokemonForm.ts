@@ -5,7 +5,7 @@ import usePokemons from "./usePokemons";
 import { useNavigate } from "react-router";
 
 const usePokemonForm = (): UsePokemonForm => {
-  const { capturePokemon } = usePokemons();
+  const { registerPokemon } = usePokemons();
   const navigate = useNavigate();
 
   const initialPokemonData = {
@@ -35,7 +35,7 @@ const usePokemonForm = (): UsePokemonForm => {
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
-    capturePokemon(pokemonData);
+    registerPokemon(pokemonData);
     navigate("/home");
   };
 
