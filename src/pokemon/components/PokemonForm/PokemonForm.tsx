@@ -1,4 +1,5 @@
 import usePokemonForm from "../../hooks/usePokemonForm";
+import Button from "../shared/Button/Button";
 import "./PokemonForm.css";
 
 const PokemonForm: React.FC = () => {
@@ -58,9 +59,9 @@ const PokemonForm: React.FC = () => {
           />
           <label htmlFor="isCaptured">Captured</label>
         </div>
-        <button className="button" disabled={!isValidData}>
+        <Button modifier="square" disabled={!isValidData}>
           Register
-        </button>
+        </Button>
       </fieldset>
     </form>
   );
