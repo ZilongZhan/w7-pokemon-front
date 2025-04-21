@@ -8,14 +8,11 @@ const usePokemonForm = (): UsePokemonForm => {
   const { registerPokemon } = usePokemons();
   const navigate = useNavigate();
 
-  const initialPokemonData: PokemonData = {
+  const initialPokemonData = {
     name: "",
     pokeIndex: 0,
     imageUrl: "",
     isCaptured: false,
-    description: "",
-    favoriteFood: "",
-    habitat: "",
   };
 
   const [pokemonData, setPokemonData] =

@@ -4,15 +4,7 @@ import "./PokemonForm.css";
 
 const PokemonForm: React.FC = () => {
   const {
-    pokemonData: {
-      imageUrl,
-      isCaptured,
-      name,
-      pokeIndex,
-      description,
-      favoriteFood,
-      habitat,
-    },
+    pokemonData: { imageUrl, isCaptured, name, pokeIndex },
     handleOnChange,
     handleOnSubmit,
     isValidData,
@@ -53,39 +45,6 @@ const PokemonForm: React.FC = () => {
             id="imageUrl"
             type="url"
             value={imageUrl}
-            onChange={handleOnChange}
-            required
-          />
-        </div>
-        <div className="pokemon-form__group">
-          <label htmlFor="imageUrl">Habitat:</label>
-          <input
-            className="pokemon-form__input"
-            id="habitat"
-            type="text"
-            value={habitat}
-            onChange={handleOnChange}
-            required
-          />
-        </div>
-        <div className="pokemon-form__group">
-          <label htmlFor="imageUrl">Favorite food:</label>
-          <input
-            className="pokemon-form__input"
-            id="favoriteFood"
-            type="text"
-            value={favoriteFood}
-            onChange={handleOnChange}
-            required
-          />
-        </div>
-        <div className="pokemon-form__group">
-          <label htmlFor="imageUrl">Description:</label>
-          <input
-            className="pokemon-form__input"
-            id="description"
-            type="text"
-            value={description}
             onChange={handleOnChange}
             required
           />

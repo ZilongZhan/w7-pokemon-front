@@ -27,9 +27,6 @@ export interface Pokemon {
   imageUrl: string;
   imageAlt: string;
   isCaptured: boolean;
-  description: string;
-  favoriteFood: string;
-  habitat: string;
 }
 
 export type PokemonDetails = Pick<Pokemon, "abilities" | "types">;

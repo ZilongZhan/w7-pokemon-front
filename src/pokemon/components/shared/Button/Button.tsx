@@ -11,7 +11,7 @@ interface ButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  action?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  action?: () => void;
   modifier?: string;
 }
 
