@@ -79,6 +79,50 @@ class PokemonClient implements PokemonClientStructure {
 
     return mapPokemonDtoToPokemon(pokemonDto, pokemonDetails);
   }
+
+  public async capturePokemon(id: string): Promise<Pokemon> {
+    const response = await fetch(
+      `${this.myPokemonsApi}/add-to-poke-ball/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ isCaptured: true }),
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error("Error capturing pokemon");
+    }
+
+    const pokemonDto = (await response.json()) as PokemonDto;
+    const pokemonDetails = await this.getPokemoDetails(pokemonDto.name);
+
+    return mapPokemonDtoToPokemon(pokemonDto, pokemonDetails);
+  }
+
+  public async releasePokemon(id: string): Promise<Pokemon> {
+    const response = await fetch(
+      `${this.myPokemonsApi}/remove-from-poke-ball/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ isCaptured: false }),
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error("Error releasing pokemon");
+    }
+
+    const pokemonDto = (await response.json()) as PokemonDto;
+    const pokemonDetails = await this.getPokemoDetails(pokemonDto.name);
+
+    return mapPokemonDtoToPokemon(pokemonDto, pokemonDetails);
+  }
 }
 
 export default PokemonClient;
