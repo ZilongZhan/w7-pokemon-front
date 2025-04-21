@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import PokemonCardsList from "./PokemonCardsList";
 import { minun, plusle } from "../../fixtures";
-import PokemonContextProvider from "../../context/PokemonContextProvider";
+import AllContextsProvider from "../../../test-utils/AllContextsProvider/AllContextsProvider";
 
 describe("Given the PokemonCardsList component", () => {
   describe("When it receives Plusle and Minun", () => {
@@ -9,7 +9,7 @@ describe("Given the PokemonCardsList component", () => {
       const pokemons = [plusle, minun];
 
       render(<PokemonCardsList pokemons={pokemons} />, {
-        wrapper: PokemonContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const plusleName = screen.getByRole("heading", { name: /plusle/i });

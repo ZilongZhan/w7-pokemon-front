@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { minun, plusle } from "../../fixtures";
 import PokemonCard from "./PokemonCard";
-import PokemonContextProvider from "../../context/PokemonContextProvider";
+import AllContextsProvider from "../../../test-utils/AllContextsProvider/AllContextsProvider";
 
 describe("Given the PokemonCard component", () => {
   describe("When it receives a Plusle which is captured", () => {
     test("Then it should show 'Plusle' inside a heading", () => {
       render(<PokemonCard pokemon={plusle} />, {
-        wrapper: PokemonContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const plusleName = screen.getByRole("heading", { name: /plusle/i });
@@ -17,7 +17,7 @@ describe("Given the PokemonCard component", () => {
 
     test("Then it should show pixelart of Plusle", () => {
       render(<PokemonCard pokemon={plusle} />, {
-        wrapper: PokemonContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const plusleImage = screen.getByAltText(/pixelart of plusle/i);
@@ -27,7 +27,7 @@ describe("Given the PokemonCard component", () => {
 
     test("Then the user should have this pokemon", () => {
       render(<PokemonCard pokemon={plusle} />, {
-        wrapper: PokemonContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const capturedIcon = screen.getByLabelText(/you have this pokemon/i);
@@ -37,7 +37,7 @@ describe("Given the PokemonCard component", () => {
 
     test("Then it should show a 'Remove Plusle' button", () => {
       render(<PokemonCard pokemon={plusle} />, {
-        wrapper: PokemonContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const removeButton = screen.getByRole("button", {
@@ -49,7 +49,7 @@ describe("Given the PokemonCard component", () => {
 
     test("Then it should show a 'Release' button and not a 'Capture' button", () => {
       render(<PokemonCard pokemon={plusle} />, {
-        wrapper: PokemonContextProvider,
+        wrapper: AllContextsProvider,
       });
 
       const releaseButton = screen.getByRole("button", { name: /release/i });
@@ -63,8 +63,10 @@ describe("Given the PokemonCard component", () => {
   describe("When it receives Minun which is not captured", () => {
     test("Then it should show a 'Capture' button and not a 'Release' button", () => {
       render(<PokemonCard pokemon={minun} />, {
-        wrapper: PokemonContextProvider,
+        wrapper: AllContextsProvider,
       });
+
+      screen.debug();
 
       const releaseButton = screen.queryByRole("button", {
         name: /release/i,
