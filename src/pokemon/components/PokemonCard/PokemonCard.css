@@ -4,7 +4,7 @@
   position: relative;
   flex-direction: column;
 
-  @media (width >= 500px) {
+  @media (width >= 650px) {
     flex-direction: row;
   }
 }
@@ -19,8 +19,9 @@
 
 .pokemon__image {
   align-self: center;
+  min-width: 120px;
 
-  @media (width >= 500px) {
+  @media (width >= 650px) {
     background-color: rgb(255, 255, 255);
   }
 
@@ -35,6 +36,7 @@
   padding: 15px;
   flex-grow: 1;
   gap: 5px;
+  justify-content: space-between;
 }
 
 .pokemon-identifiers {
@@ -49,6 +51,10 @@
 }
 
 .pokemon__name {
-  margin: 0 30px 0 0;
+  margin: 0;
   font-size: 1rem;
+
+  @media (width >= 650px) {
+    margin-right: 30px;
+  }
 }

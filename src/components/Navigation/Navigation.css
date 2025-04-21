@@ -1,7 +1,7 @@
 .navigation__list {
   display: flex;
 
-  @media (width >= 500px) {
+  @media (width >= 650px) {
     flex-direction: column;
   }
 }
