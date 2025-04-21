@@ -3,61 +3,50 @@ import usePokemons from "../../hooks/usePokemons";
 import { Pokemon } from "../../types";
 import Button from "../shared/Button/Button";
 
-import "./PokemonCard.css";
+import "./PokemonDetailsCard.css";
 
-interface PokemonCardProps {
+interface PokemonDetailsCardProps {
   pokemon: Pokemon;
 }
 
-const PokemonCard: React.FC<PokemonCardProps> = ({
-  pokemon: { id, pokeIndex, name, imageUrl, imageAlt, isCaptured, types },
+const PokemonDetailsCard: React.FC<PokemonDetailsCardProps> = ({
+  pokemon: {
+    id,
+    pokeIndex,
+    types,
+    name,
+    isCaptured,
+    imageAlt,
+    imageUrl,
+    abilities,
+    description,
+    favoriteFood,
+    habitat,
+  },
 }) => {
   const { removePokemon, capturePokemon, releasePokemon } = usePokemons();
   const navigate = useNavigate();
 
-  const handleRemovePokemon = (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
-  ): void => {
-    event.stopPropagation();
-
+  const handleRemovePokemon = (): void => {
     removePokemon(id);
+
+    navigate("/home");
   };
 
-  const handleCapturePokemon = (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
-  ): void => {
-    event.stopPropagation();
-
+  const handleCapturePokemon = (): void => {
     capturePokemon(id);
   };
 
-  const handleReleasePokemon = (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
-  ): void => {
-    event.stopPropagation();
-
+  const handleReleasePokemon = (): void => {
     releasePokemon(id);
   };
 
-  const handleViewDetails = (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
-  ): void => {
-    event.stopPropagation();
-
-    navigate(`/pokemon/${name}`);
-  };
-
   return (
-    <article
-      className="pokemon"
-      tabIndex={0}
-      onClick={handleViewDetails}
-      aria-label={`View details of ${name}`}
-    >
+    <article className="pokemon-info">
       {isCaptured && (
         <img
           className="pokemon__captured"
-          src="pokeball.svg"
+          src={"../pokeball.svg"}
           alt="Pokeball icon"
           aria-label="You have this pokemon"
           width={15}
@@ -77,7 +66,25 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
           <h3 className="pokemon__name">{name}</h3>
         </div>
         <div className="pokemon-details">
-          <span className="pokemon__types">Types: {types.join(", ")}</span>
+          <p>
+            <b className="pokemon-info__label">Description:</b>
+            {description}
+          </p>
+          <span className="pokemon__types">
+            <b className="pokemon-info__label">Types:</b> {types.join(", ")}
+          </span>
+          <span>
+            <b className="pokemon-info__label">Abilities:</b>{" "}
+            {abilities.join(", ")}
+          </span>
+          <span>
+            <b className="pokemon-info__label">Favorite food:</b>
+            {favoriteFood}
+          </span>
+          <span>
+            <b className="pokemon-info__label">Habitat:</b>
+            {habitat}
+          </span>
         </div>
         {isCaptured ? (
           <Button modifier="square" action={handleReleasePokemon}>
@@ -100,4 +107,4 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
   );
 };
 
-export default PokemonCard;
+export default PokemonDetailsCard;

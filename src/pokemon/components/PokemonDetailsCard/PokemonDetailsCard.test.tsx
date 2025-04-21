@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { minun, plusle } from "../../fixtures";
-import PokemonCard from "./PokemonCard";
+import PokemonDetailsCard from "./PokemonDetailsCard";
 import AllContextsProvider from "../../../test-utils/AllContextsProvider/AllContextsProvider";
 
-describe("Given the PokemonCard component", () => {
-  describe("When it receives a Plusle which is captured", () => {
+describe("Given the PokemonDetailsCard component", () => {
+  describe("When it receives Plusle which is captured", () => {
     test("Then it should show 'Plusle' inside a heading", () => {
-      render(<PokemonCard pokemon={plusle} />, {
+      render(<PokemonDetailsCard pokemon={plusle} />, {
         wrapper: AllContextsProvider,
       });
 
@@ -16,7 +16,7 @@ describe("Given the PokemonCard component", () => {
     });
 
     test("Then it should show pixelart of Plusle", () => {
-      render(<PokemonCard pokemon={plusle} />, {
+      render(<PokemonDetailsCard pokemon={plusle} />, {
         wrapper: AllContextsProvider,
       });
 
@@ -26,7 +26,7 @@ describe("Given the PokemonCard component", () => {
     });
 
     test("Then the user should have this pokemon", () => {
-      render(<PokemonCard pokemon={plusle} />, {
+      render(<PokemonDetailsCard pokemon={plusle} />, {
         wrapper: AllContextsProvider,
       });
 
@@ -36,7 +36,7 @@ describe("Given the PokemonCard component", () => {
     });
 
     test("Then it should show a 'Remove Plusle' button", () => {
-      render(<PokemonCard pokemon={plusle} />, {
+      render(<PokemonDetailsCard pokemon={plusle} />, {
         wrapper: AllContextsProvider,
       });
 
@@ -48,7 +48,7 @@ describe("Given the PokemonCard component", () => {
     });
 
     test("Then it should show a 'Release' button and not a 'Capture' button", () => {
-      render(<PokemonCard pokemon={plusle} />, {
+      render(<PokemonDetailsCard pokemon={plusle} />, {
         wrapper: AllContextsProvider,
       });
 
@@ -62,7 +62,7 @@ describe("Given the PokemonCard component", () => {
 
   describe("When it receives Minun which is not captured", () => {
     test("Then it should show a 'Capture' button and not a 'Release' button", () => {
-      render(<PokemonCard pokemon={minun} />, {
+      render(<PokemonDetailsCard pokemon={minun} />, {
         wrapper: AllContextsProvider,
       });
 
