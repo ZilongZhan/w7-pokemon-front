@@ -29,11 +29,33 @@ const PokemonContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     );
   };
 
+  const capturePokemon = async (id: string): Promise<void> => {
+    const apiPokemon = await pokemonClient.capturePokemon(id);
+
+    setPokemons((pokemons) =>
+      pokemons.map((pokemon) =>
+        pokemon.id === apiPokemon.id ? apiPokemon : pokemon,
+      ),
+    );
+  };
+
+  const releasePokemon = async (id: string): Promise<void> => {
+    const apiPokemon = await pokemonClient.releasePokemon(id);
+
+    setPokemons((pokemons) =>
+      pokemons.map((pokemon) =>
+        pokemon.id === apiPokemon.id ? apiPokemon : pokemon,
+      ),
+    );
+  };
+
   const PokemonContextValue: PokemonContextStructure = {
     pokemons,
     renderPokemons,
     registerPokemon,
     removePokemon,
+    capturePokemon,
+    releasePokemon,
   };
 
   return (
