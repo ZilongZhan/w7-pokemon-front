@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { plusle } from "../../fixtures";
+import { minun, plusle } from "../../fixtures";
 import PokemonCard from "./PokemonCard";
 import PokemonContextProvider from "../../context/PokemonContextProvider";
 
@@ -33,6 +33,48 @@ describe("Given the PokemonCard component", () => {
       const capturedIcon = screen.getByLabelText(/you have this pokemon/i);
 
       expect(capturedIcon).toBeVisible();
+    });
+
+    test("Then it should show a 'Remove Plusle' button", () => {
+      render(<PokemonCard pokemon={plusle} />, {
+        wrapper: PokemonContextProvider,
+      });
+
+      const removeButton = screen.getByRole("button", {
+        name: /remove plusle/i,
+      });
+
+      expect(removeButton).toBeVisible();
+    });
+
+    test("Then it should show a 'Release' button and not a 'Capture' button", () => {
+      render(<PokemonCard pokemon={plusle} />, {
+        wrapper: PokemonContextProvider,
+      });
+
+      const releaseButton = screen.getByRole("button", { name: /release/i });
+      const captureButton = screen.queryByRole("button", { name: /capture/i });
+
+      expect(releaseButton).toBeVisible();
+      expect(captureButton).toBeNull();
+    });
+  });
+
+  describe("When it receives Minun which is not captured", () => {
+    test("Then it should show a 'Capture' button and not a 'Release' button", () => {
+      render(<PokemonCard pokemon={minun} />, {
+        wrapper: PokemonContextProvider,
+      });
+
+      const releaseButton = screen.queryByRole("button", {
+        name: /release/i,
+      });
+      const captureButton = screen.getByRole("button", {
+        name: /capture/i,
+      });
+
+      expect(releaseButton).toBeNull();
+      expect(captureButton).toBeVisible();
     });
   });
 });

@@ -11,10 +11,18 @@ interface PokemonCardProps {
 const PokemonCard: React.FC<PokemonCardProps> = ({
   pokemon: { id, pokeIndex, name, imageUrl, imageAlt, isCaptured, types },
 }) => {
-  const { removePokemon } = usePokemons();
+  const { removePokemon, capturePokemon, releasePokemon } = usePokemons();
 
-  const handleOnClick = () => {
+  const handleRemovePokemon = (): void => {
     removePokemon(id);
+  };
+
+  const handleCapturePokemon = (): void => {
+    capturePokemon(id);
+  };
+
+  const handleReleasePokemon = (): void => {
+    releasePokemon(id);
   };
 
   return (
@@ -44,8 +52,21 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
         <div className="pokemon-details">
           <span className="pokemon__types">Types: {types.join(", ")}</span>
         </div>
+        {isCaptured ? (
+          <Button modifier="square" action={handleReleasePokemon}>
+            Release
+          </Button>
+        ) : (
+          <Button modifier="square" action={handleCapturePokemon}>
+            Capture
+          </Button>
+        )}
       </div>
-      <Button action={handleOnClick} modifier="remove">
+      <Button
+        action={handleRemovePokemon}
+        modifier="remove"
+        aria-label={`Remove ${name}`}
+      >
         X
       </Button>
     </article>
